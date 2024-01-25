@@ -77,7 +77,7 @@ export const ChargeButtom = styled.input`
 `;
 
 export const ChargeInput = styled.input`
-    /* background: ${theme.colors.white}; */
+    
 `;
 
 export const ChrageButtomDetail = styled.p`
@@ -111,6 +111,8 @@ export const ButtonMetricsView = styled.button`
     margin-top: 15px;
     font-weight: bold;
 
+    margin-right: 10px;
+
     background: ${theme.colors.darkGreen};
     transition: 0.2s;
 
@@ -125,8 +127,6 @@ export const TableComponent = styled.table`
     
     th, td {
         padding: 8px;
-        /* border: 1px solid #ddd; */
-        /* border: none; */
         text-align: left;
 
     }

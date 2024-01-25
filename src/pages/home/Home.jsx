@@ -2,15 +2,17 @@ import { useState, useEffect } from "react";
 import { ButtonMetricsView, ChargeInput, ChrageButtomDetail, PageContainer, PageFooter, PageHeader, PageInfo, PageView, TableComponent, TableView } from "./Home.style"
 import Papa from 'papaparse'
 import { icons } from "../../icons"
-import { apiPost } from "../../services/apiManager"
+import { apiPost, apiDeleteAll } from "../../services/apiManager"
 import { convertStringToDate, removeDuplicatesById } from "../../utils/dataFormat";
 import { Loading } from "../../components/loading/Loading";
+import { Link } from 'react-router-dom';
 
 export function Home () {
 
     const [data, setData] = useState([]);
     const [shippingData, setShippingData] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [loadMessage, setLoadMessage] = useState('');
 
     const handleFileUpdate = (e) =>{
         const file = e.target.files[0];
@@ -24,16 +26,10 @@ export function Home () {
 
     const handleShippingData = async () => {
         setLoading(true);
-
+        setLoadMessage('Carregando dados da planilha para o banco...\nIsso pode levar alguns segundos a depender da conexão com o banco.');
         try {
+            await apiDeleteAll();
             await apiPost(shippingData)
-                .then((response) => {
-                    // Faça algo com a resposta se necessário
-                    console.log('Resposta da API:', response);
-                })
-                .catch((error) => {
-                    console.error('Erro ao processar resposta da API:', error);
-                });
     
             console.log('Dados enviados com sucesso!');
         } catch (error) {
@@ -73,10 +69,7 @@ export function Home () {
         <PageContainer>
 
             {
-                loading ?
-                (
-                    <Loading />
-                ):null
+                loading ? (<Loading label={loadMessage} />) : null
             }
 
             <PageHeader>
@@ -138,15 +131,24 @@ export function Home () {
                     }
 
                 </TableView>
-                {
-                    data.length ? (
+                <div>
+                    {
+                        data.length ? (
+                        
+                            <ButtonMetricsView
+                                onClick={adjustingShippingData}
+                            >
+                                Upload para o banco
+                            </ButtonMetricsView>
+                        ) : null
+                    }
+                    <Link to="/metrics">
                         <ButtonMetricsView
-                            onClick={adjustingShippingData}
                         >
-                            Visualizar métricas
+                            Visualizar métricas de dados existentes
                         </ButtonMetricsView>
-                    ) : null
-                }
+                    </Link>
+                </div>
             </PageView>
             <PageFooter>
                 <p>

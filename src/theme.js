@@ -11,5 +11,6 @@ export const theme = {
     hoverColors: {
         white: "#fff",
         purple: "#5f2f5f",
+        yellow: "#fcd399",
     }
 }

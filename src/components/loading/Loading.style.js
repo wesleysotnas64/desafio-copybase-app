@@ -2,7 +2,7 @@ import styled, { keyframes } from "styled-components"
 // import { theme } from "../../theme.js"
 
 export const PageContainer = styled.div`
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.8);
     height: 100vh;
     width: 100vw;
     display: flex;

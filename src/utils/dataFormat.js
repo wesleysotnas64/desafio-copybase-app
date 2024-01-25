@@ -1,4 +1,4 @@
-// Função para converter string de data para objeto Date
+
 export const convertStringToDate = (dateString) => {
 
     if (!dateString || dateString.trim() === "") {
@@ -9,7 +9,6 @@ export const convertStringToDate = (dateString) => {
     const dataPartes = partes[0].split('/');
     const horaPartes = partes[1] ? partes[1].split(':') : [0, 0];
 
-    // Mês em JavaScript é baseado em zero, então subtrai 1 do mês
     const ano = parseInt(dataPartes[2], 10) + 2000; // assumindo que "22" significa "2022"
     const mes = parseInt(dataPartes[0], 10) - 1;
     const dia = parseInt(dataPartes[1], 10);
@@ -31,4 +30,15 @@ export const removeDuplicatesById = (records) => {
     }
   
     return uniqueRecords;
+}
+
+export const formatarValorMonetario = (valor) => {
+  
+  const valorArredondado = Math.round(valor * 100) / 100;
+  const valorString = valorArredondado.toFixed(2);
+  const [parteInteira, parteDecimal] = valorString.split('.');
+  const parteInteiraFormatada = parteInteira.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  const resultadoFormatado = `${parteInteiraFormatada},${parteDecimal}`;
+
+  return resultadoFormatado;
 }

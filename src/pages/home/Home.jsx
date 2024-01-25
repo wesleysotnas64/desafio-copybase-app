@@ -26,7 +26,7 @@ export function Home () {
 
     const handleShippingData = async () => {
         setLoading(true);
-        setLoadMessage('Carregando dados da planilha para o banco...\nIsso pode levar alguns segundos a depender da conexão com o banco.');
+        setLoadMessage('Carregando dados para o banco... Isso pode levar um tempo, dependendo da velocidade da conexão com o banco.');
         try {
             await apiDeleteAll();
             await apiPost(shippingData)

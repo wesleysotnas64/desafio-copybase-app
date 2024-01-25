@@ -21,7 +21,7 @@ export function Metrics () {
     const [churnRateMonth, setChurRateMonth] = useState(0);
     const [activeSubscribers, setActiveSubscribers] = useState(1);
     const [canceledSubscribers, setCanceledSubscribers] = useState(1);
-    const [currentYear, setCurrentYear] = useState(0);
+    const [currentYear, setCurrentYear] = useState(2022);
     const [currentMonth, setCurrentMonth] = useState(1);
     const [janRevenue, setJanRevenue] = useState(0.0);
     const [fevRevenue, setFevRevenue] = useState(0.0);

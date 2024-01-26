@@ -1,8 +1,19 @@
-# React + Vite
+# Desafio Copybase (Aplicação WEB)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descrição
+Aplicação feita para calcular Monthly Recurring Revenue (MRR) e Churn Rate (CR). 
+### Tela de upload de arquivos em .csv
+![image](https://github.com/wesleysotnas64/desafio-copybase-app/assets/94082665/b143f5bf-7a5b-4ad8-9361-859f2214bd5c)
+### Tela de cálculo de métricas (MRR e CR)
+![image](https://github.com/wesleysotnas64/desafio-copybase-app/assets/94082665/affa2c18-9cd4-4e74-bb95-7bfa9a4056ce)
 
-Currently, two official plugins are available:
+## Tecnologias
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Front-end:
+  - ReactJS (Com inicializador Vite em JavaScript).
+  - Netlify para subir a aplicação por meio do GitHub.
+- Back-end:
+  - NodeJS (Web API com Fastify)
+  - Render para subir o Web Server.
+- Banco de Dados:
+  - Neon para armazenamento dos dados usando Postgres.
